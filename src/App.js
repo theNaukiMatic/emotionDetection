@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@material-ui/core";
+import CameraComp from "./camera";
+import YoutubeComp from "./youtube";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Grid
+			style={{
+				backgroundColor: "black",
+				height: "100vh",
+				width: "100vw",
+			}}
+			container
+		>
+			<Grid item sm={6} xs={12} style={{ padding: 40 }}>
+				<YoutubeComp />
+			</Grid>
+			<Grid item sm={6} xs={12} style={{ padding: 40 }}>
+				<CameraComp />
+			</Grid>
+		</Grid>
+	);
 }
 
 export default App;
