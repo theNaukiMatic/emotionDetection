@@ -1,24 +1,29 @@
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
+import { useState } from "react";
 import CameraComp from "./camera";
+import ResultComp from "./results";
 import YoutubeComp from "./youtube";
 
 function App() {
+	const [results, setResults] = useState([]);
 	return (
-		<Grid
+		<div
 			style={{
-				backgroundColor: "black",
+				width: "100%",
 				height: "100vh",
-				width: "100vw",
+				backgroundColor: "black",
 			}}
-			container
 		>
-			<Grid item sm={6} xs={12} style={{ padding: 40 }}>
-				<YoutubeComp />
+			<Grid container spacing={2}>
+				<Grid item sm={6} xs={12}>
+					<YoutubeComp />
+				</Grid>
+				<Grid item sm={6} xs={12}>
+					<CameraComp results={results} setResults={setResults} />
+				</Grid>
 			</Grid>
-			<Grid item sm={6} xs={12} style={{ padding: 40 }}>
-				<CameraComp />
-			</Grid>
-		</Grid>
+			<ResultComp results={results} />
+		</div>
 	);
 }
 

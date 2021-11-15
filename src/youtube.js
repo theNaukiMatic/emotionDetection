@@ -1,4 +1,4 @@
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField } from "@mui/material";
 import React, { useRef, useState } from "react";
 import YouTube from "react-youtube";
 
@@ -18,7 +18,6 @@ export default function YoutubeComp() {
 	const [videoId, setVideoId] = useState("");
 	const [playerVideoId, setPlayerVideoId] = useState("3rHxgKI97s4");
 	function searchVideoId() {
-		// alert("hehe");
 		setPlayerVideoId(videoId);
 	}
 
@@ -33,28 +32,26 @@ export default function YoutubeComp() {
 			>
 				<YouTube ref={videoRef} videoId={playerVideoId} opts={opts} />
 			</div>
-
 			<div
+				elevation={3}
 				style={{
-					marginTop: 40,
-					backgroundColor: "grey",
-					borderRadius: 20,
-					padding: 20,
-					paddingLeft: 60,
+					display: "flex",
 				}}
 			>
-				<TextField
-					value={videoId}
-					onChange={(e) => setVideoId(e.target.value)}
-				/>
-				<Button
-					variant="contained"
-					style={{ marginLeft: "50px" }}
-					onClick={searchVideoId}
-				>
-					{" "}
-					Set Video Id{" "}
-				</Button>
+				<div style={{ marginLeft: "auto", marginRight: "auto" }}>
+					<TextField
+						value={videoId}
+						onChange={(e) => setVideoId(e.target.value)}
+					/>
+					<Button
+						variant="contained"
+						style={{ height: 55 }}
+						onClick={searchVideoId}
+					>
+						{" "}
+						Set Video Id{" "}
+					</Button>
+				</div>
 			</div>
 		</div>
 	);
